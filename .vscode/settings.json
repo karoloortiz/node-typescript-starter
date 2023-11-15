@@ -1,0 +1,257 @@
+{
+  "folderTemplates.structures": [
+    {
+      "name": "Use Case",
+      "omitParentDirectory": false,
+      "structure": [
+        {
+          "fileName": "<FTName>.steps.ts",
+          "template": "steps"
+        },
+        {
+          "fileName": "<FTName>.ts",
+          "template": "useCase"
+        },
+        {
+          "fileName": "<FTName>Controller.ts",
+          "template": "controller"
+        },
+        {
+          "fileName": "<FTName>Error.ts",
+          "template": "error"
+        },
+        {
+          "fileName": "index.ts",
+          "template": "index"
+        }
+      ]
+    },
+    {
+      "name": "Module",
+      "omitParentDirectory": false,
+      "structure": [
+        {
+          "fileName": "domain/entities",
+          "template": "EmptyDirectory"
+        },
+        {
+          "fileName": "domain/valueObjects",
+          "template": "EmptyDirectory"
+        },
+        {
+          "fileName": "infra/http/routes",
+          "template": "EmptyDirectory"
+        },
+        {
+          "fileName": "mappers",
+          "template": "EmptyDirectory"
+        },
+        {
+          "fileName": "repos/implementations",
+          "template": "EmptyDirectory"
+        },
+        {
+          "fileName": "repos/index.ts"
+        },
+        {
+          "fileName": "useCases",
+          "template": "EmptyDirectory"
+        }
+      ]
+    },
+    {
+      "name": "EntityWithFactory",
+      "omitParentDirectory": false,
+      "structure": [
+        {
+          "fileName": "<FTName>.ts",
+          "template": "entityWithFactory"
+        },
+        {
+          "fileName": "<FTName>Error.ts",
+          "template": "domainError"
+        }
+      ]
+    },
+    {
+      "name": "Entity",
+      "omitParentDirectory": false,
+      "structure": [
+        {
+          "fileName": "<FTName>.ts",
+          "template": "entity"
+        },
+        {
+          "fileName": "<FTName>Error.ts",
+          "template": "domainError"
+        }
+      ]
+    },
+    {
+      "name": "ValueObject",
+      "omitParentDirectory": false,
+      "structure": [
+        {
+          "fileName": "<FTName>.ts",
+          "template": "valueObject"
+        },
+        {
+          "fileName": "<FTName>Error.ts",
+          "template": "domainError"
+        }
+      ]
+    },
+    {
+      "name": "Mixin",
+      "omitParentDirectory": true,
+      "structure": [
+        {
+          "fileName": "<FTName>.ts",
+          "template": "mixin"
+        }
+      ]
+    }
+  ],
+  "folderTemplates.fileTemplates": {
+    "steps": [],
+    "useCase": [
+      "import { AppError, UseCase } from '../../../../ddd-primitives';",
+      "import { <FTName | pascalcase>Error } from './<FTName>Error';",
+      "",
+      "",
+      "export interface <FTName | pascalcase>Input {",
+      "",
+      "}",
+      "",
+      "export class <FTName | pascalcase>",
+      "implements UseCase<<FTName | pascalcase>Input, any>",
+      "{",
+      "",
+      "",
+      "",
+      "async execute(input: <FTName | pascalcase >Input): Promise<any> {",
+      "return",
+      "}",
+      "}"
+    ],
+    "controller": [
+      "import e, * as express from 'express';",
+      "import { <FTName | pascalcase> } from './<FTName>';",
+      "import { BaseController } from '../../../../ddd-primitives';",
+      "import { <FTName | pascalcase>Error } from './<FTName>Error';",
+      "",
+      "",
+      "",
+      "export class <FTName | pascalcase>Controller extends BaseController {",
+      "private <FTName>: <FTName | pascalcase>;",
+      "",
+      "",
+      "public constructor(<FTName>: <FTName | pascalcase>) {",
+      "super();",
+      "this.<FTName> = <FTName>;",
+      "}",
+      "",
+      "",
+      "public async executeImpl(req: express.Request, res: express.Response): Promise<any> {",
+      "",
+      "",
+      "",
+      "",
+      "}",
+      "}"
+    ],
+    "error": ["export namespace <FTName | pascalcase>Error {", "", "", "}"],
+    "index": [
+      "import { <FTName | pascalcase> } from './<FTName>';",
+      "",
+      "const <FTName> = new <FTName | pascalcase>();",
+      "",
+      "export {<FTName>}"
+    ],
+    "entityWithFactory": [
+      "import { UniqueEntityID, Entity } from 'ddd-primitives';",
+      "import { Result } from'ddd-primitives/build/core/Monad';",
+      "",
+      "export interface <FTName | pascalcase>Props {",
+      "",
+      "}",
+      "",
+      "export class <FTName | pascalcase> extends Entity<<FTName | pascalcase>Props> {",
+      "",
+      "private constructor(props: <FTName | pascalcase>Props, id?: UniqueEntityID) {",
+      "super(props, id);",
+      "}",
+      "",
+      "public static create(props: <FTName | pascalcase>Props, id?: UniqueEntityID): Result<<FTName | pascalcase>, any> {",
+      "",
+      "}",
+      "}"
+    ],
+    "entity": [
+      "import { UniqueEntityID, Entity } from 'ddd-primitives';",
+      "",
+      "export interface <FTName | pascalcase>Props {",
+      "",
+      "}",
+      "",
+      "export class <FTName | pascalcase> extends Entity<<FTName | pascalcase>Props> {",
+      "",
+      "public constructor(props: <FTName | pascalcase>Props, id?: UniqueEntityID) {",
+      "super(props, id);",
+      "}",
+      "}"
+    ],
+    "valueObject": [
+      "import { ValueObject, UniqueEntityID } from 'ddd-primitives';",
+      "import { Result } from'ddd-primitives/build/core/Monad';",
+      "",
+      "export interface <FTName | pascalcase>Props {",
+      "",
+      "}",
+      "",
+      "export class <FTName | pascalcase> extends ValueObject<<FTName | pascalcase>Props> {",
+      "",
+      "private constructor(props: <FTName | pascalcase>Props) {",
+      "super(props);",
+      "}",
+      "",
+      "public static create(props: <FTName | pascalcase>Props): Result<<FTName | pascalcase>, any> {",
+      "",
+      "}",
+      "}"
+    ],
+    "domainError": [
+      "export namespace <FTName | pascalcase>Error {",
+      "",
+      "",
+      "}"
+    ],
+    "mixin": [
+      "import {",
+      "AnyConstructor,",
+      "Mixin,",
+      "createMixinFunction,",
+      "} from '../../shared/mixins';",
+      "",
+      "export interface <FTName | pascalcase>Props {",
+      "",
+      "}",
+      "",
+      "export const <FTName>Mixin = createMixinFunction((Base) => {",
+      "class <FTName | pascalcase> extends (Base as unknown as AnyConstructor<any>) {",
+      "constructor(props: <FTName | pascalcase>Props){}",
+      "",
+      "}",
+      "",
+      "return <FTName | pascalcase>",
+      "});",
+      "",
+      "export type <FTName | pascalcase> = Mixin<",
+      "typeof <FTName>Mixin<any>",
+      ">;",
+      "export const <FTName | pascalcase> = <FTName>Mixin({});"
+    ]
+  },
+  "jest.autoRun": {},
+  "jest.jestCommandLine": "yarn jest --detectOpenHandles --forceExit"
+}

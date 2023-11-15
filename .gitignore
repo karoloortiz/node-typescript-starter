@@ -1,0 +1,16 @@
+/node_modules
+/*.env
+npm-debug.log
+.DS_Store
+/templates
+# Local Netlify folder
+.netlify
+/build
+/*.log
+/strapi-template
+**node_modules
+yarn.lock
+/test
+**/node_modules
+/test-react
+/temp
