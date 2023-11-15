@@ -1,8 +1,8 @@
 // http
-import "./bootstrap/http/server"
+import "./http/server"
 
 // database
-import "./bootstrap/database"
+// import "./database"
 
 // logger
-import "./bootstrap/logger"
+import "./logger"

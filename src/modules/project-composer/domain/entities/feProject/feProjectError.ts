@@ -1,13 +1,13 @@
-import { SnappieError } from "../../../../../ddd-primitives/core/SnappieError";
+import { DomainError } from "../../../../../ddd-primitives/core/DomainError";
 
 export namespace FEProjectError {
-  export class FileNotFound extends SnappieError<"FileNotFound"> {
+  export class FileNotFound extends DomainError<"FileNotFound"> {
     constructor() {
       super("FileNotFound");
     }
   }
 
-  export class DuplicatedFile extends SnappieError<"DuplicatedFile"> {
+  export class DuplicatedFile extends DomainError<"DuplicatedFile"> {
     constructor() {
       super("DuplicatedFile");
     }

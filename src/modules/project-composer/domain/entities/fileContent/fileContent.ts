@@ -17,19 +17,21 @@ export class FileContent extends ValueObject<FileContentProps> {
     this._fullPath = new FullPath({ fullPath: props.name });
   }
 
-  public get sourceCode(): string {
-    return format(this._sourceCode, {
+  public async sourceCode(): Promise<string> {
+    const result = await format(this._sourceCode, {
       filepath: this.props.name,
     });
+
+    return result;
   }
 
-  public hasSourceCode(code: string): boolean {
-    const formattedCode = format(code, {
+  public async hasSourceCode(code: string): Promise<boolean> {
+    const formattedCode = await format(code, {
       filepath: this.props.name,
       trailingComma: "none",
     });
 
-    const formattedSourceCode = format(this._sourceCode, {
+    const formattedSourceCode = await format(this._sourceCode, {
       filepath: this.props.name,
       trailingComma: "none",
     });

@@ -1,3 +1,7 @@
-ddd_typescript_starter
+node_typescript_starter
 
-This is the ddd typescript starter project
+This is the node typescript starter project
+
+install in visual studio
+- prettier
+- 

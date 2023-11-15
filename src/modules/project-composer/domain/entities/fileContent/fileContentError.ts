@@ -1,7 +1,7 @@
-import { SnappieError } from "../../../../../ddd-primitives/core/SnappieError";
+import { DomainError } from "../../../../../ddd-primitives/core/DomainError";
 
 export namespace FileContentError {
-  export class IncorrectPlaceholderValues extends SnappieError<"IncorrectPlaceholderValues"> {
+  export class IncorrectPlaceholderValues extends DomainError<"IncorrectPlaceholderValues"> {
     constructor() {
       super("IncorrectPlaceholderValues");
     }

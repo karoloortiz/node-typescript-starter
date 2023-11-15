@@ -41,11 +41,11 @@ export class ProjectFile extends Entity<ProjectFileProps> {
     return this.path.path;
   }
 
-  public getSourceCode(): string {
-    return this.content.sourceCode;
+  public async getSourceCode(): Promise<string> {
+    return this.content.sourceCode();
   }
 
-  public hasSourceCode(sourceCode: string): boolean {
+  public async hasSourceCode(sourceCode: string): Promise<boolean> {
     return this.content.hasSourceCode(sourceCode);
   }
 

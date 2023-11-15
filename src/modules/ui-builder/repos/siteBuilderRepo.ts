@@ -1,5 +1,3 @@
-import { ComponentMeta } from "../../components-library/lib/componentMeta/componentMeta";
-
 export interface ISiteBuilderRepo {
   getDigitalProductPage(
     pageId: string,

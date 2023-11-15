@@ -44,7 +44,7 @@ export class GenerateFEProjectController extends BaseController {
       recursive: true,
     });
 
-    project.files.forEach((f) => {
+    project.files.forEach(async (f) => {
       const pathParts = f.getFullPath().substring(1).split("/");
 
       if (pathParts.length > 1) {
@@ -57,8 +57,8 @@ export class GenerateFEProjectController extends BaseController {
           }
         );
       }
-      
-      fs.writeFileSync(projectPath + f.getFullPath(), f.getSourceCode());
+
+      fs.writeFileSync(projectPath + f.getFullPath(), await f.getSourceCode());
     });
 
     return projectPath;

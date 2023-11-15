@@ -11,12 +11,12 @@ export const logger = winston.createLogger({
     // - Write all logs with level `info` and below to `combined.log`
     //
     new winston.transports.File({
-      filename: "error.log",
+      filename: "log/error.log",
       level: "error",
       format: winston.format.timestamp(),
     }),
     new winston.transports.File({
-      filename: "combined.log",
+      filename: "log/combined.log",
       level: "info",
       format: winston.format.timestamp(),
     }),

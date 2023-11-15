@@ -85,7 +85,7 @@ export const withDynamicDependenciesMixin = createMixinFunction((Base) => {
       );
     }
 
-    public getSourceCode(): string {
+    public async getSourceCode(): Promise<string> {
       for (const dep of this._dependencies) {
         if (dep.externalFile) {
           if (dep.originalImport) {
@@ -105,7 +105,7 @@ export const withDynamicDependenciesMixin = createMixinFunction((Base) => {
       return super.getSourceCode();
     }
 
-    public hasSourceCode(sourceCode: string): boolean {
+    public async hasSourceCode(sourceCode: string): Promise<boolean> {
       for (const dep of this._dependencies) {
         if (dep.externalFile) {
           if (dep.originalImport) {

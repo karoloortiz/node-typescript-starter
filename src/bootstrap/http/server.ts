@@ -7,8 +7,7 @@ import compression from "compression";
 import { logger } from "../logger";
 import * as config from "../../config";
 import { healthRouter } from "./health";
-import { generativeaiRouter } from "../../modules/digital-product-manager/infra/http/routes/generativeai";
-import { designSystemRouter } from "../../modules/design-system-builder/infra/http/routes/designSystemRoute";
+
 import { projectComposerRouter } from "../../modules/project-composer/infra/http/routes/projectComposer";
 
 const origin = {
@@ -26,8 +25,7 @@ app.use(helmet());
 app.use(morgan("combined"));
 
 app.use(healthRouter);
-app.use(generativeaiRouter);
-app.use(designSystemRouter);
+
 app.use(projectComposerRouter);
 
 const port = config.server.port;

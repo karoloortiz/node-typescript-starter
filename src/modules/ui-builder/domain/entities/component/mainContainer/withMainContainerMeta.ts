@@ -1,6 +1,5 @@
 import { Component } from "../component";
 import { createMixinFunction, AnyConstructor } from "../../../shared/mixins";
-import { ReactComponentLibrary } from "../../../../../components-library/lib/componentLibrary";
 import { ComponentSpec } from "../../../valueObjects/componentSpec";
 
 export interface MainContainerMetaProps {}
