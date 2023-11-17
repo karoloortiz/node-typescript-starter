@@ -253,6 +253,6 @@
     ]
   },
   "jest.autoRun": {},
-  "jest.jestCommandLine": "yarn jest --detectOpenHandles --forceExit",
-  "jest.autoRevealOutput": "off"
+  "jest.jestCommandLine": "yarn run test",
+  "jest.autoRevealOutput": "on-run"
 }
