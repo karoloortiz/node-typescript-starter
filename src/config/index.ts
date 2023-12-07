@@ -7,7 +7,7 @@ const db = {
   password: process.env.DB_PASSWORD,
   port: process.env.DB_PORT,
   host: process.env.DB_HOST,
-  name: process.env.DB_NAME || "snappie",
+  name: process.env.DB_NAME || "db",
 };
 const server = { port: process.env.SERVER_PORT };
 
